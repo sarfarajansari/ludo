@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/ludo/static/css/main.2aeaf6c8.chunk.css",
-    "main.js": "/ludo/static/js/main.15696fe8.chunk.js",
-    "main.js.map": "/ludo/static/js/main.15696fe8.chunk.js.map",
-    "runtime-main.js": "/ludo/static/js/runtime-main.1b1241fd.js",
-    "runtime-main.js.map": "/ludo/static/js/runtime-main.1b1241fd.js.map",
+    "main.css": "/ludo/static/css/main.e4cce587.chunk.css",
+    "main.js": "/ludo/static/js/main.a741e847.chunk.js",
+    "main.js.map": "/ludo/static/js/main.a741e847.chunk.js.map",
+    "runtime-main.js": "/ludo/static/js/runtime-main.d8dcdf97.js",
+    "runtime-main.js.map": "/ludo/static/js/runtime-main.d8dcdf97.js.map",
     "static/js/2.a62db4a8.chunk.js": "/ludo/static/js/2.a62db4a8.chunk.js",
     "static/js/2.a62db4a8.chunk.js.map": "/ludo/static/js/2.a62db4a8.chunk.js.map",
-    "static/js/3.4b7f40d8.chunk.js": "/ludo/static/js/3.4b7f40d8.chunk.js",
-    "static/js/3.4b7f40d8.chunk.js.map": "/ludo/static/js/3.4b7f40d8.chunk.js.map",
+    "static/js/3.1350f65c.chunk.js": "/ludo/static/js/3.1350f65c.chunk.js",
+    "static/js/3.1350f65c.chunk.js.map": "/ludo/static/js/3.1350f65c.chunk.js.map",
     "index.html": "/ludo/index.html",
-    "static/css/main.2aeaf6c8.chunk.css.map": "/ludo/static/css/main.2aeaf6c8.chunk.css.map",
+    "static/css/main.e4cce587.chunk.css.map": "/ludo/static/css/main.e4cce587.chunk.css.map",
     "static/js/2.a62db4a8.chunk.js.LICENSE.txt": "/ludo/static/js/2.a62db4a8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1b1241fd.js",
+    "static/js/runtime-main.d8dcdf97.js",
     "static/js/2.a62db4a8.chunk.js",
-    "static/css/main.2aeaf6c8.chunk.css",
-    "static/js/main.15696fe8.chunk.js"
+    "static/css/main.e4cce587.chunk.css",
+    "static/js/main.a741e847.chunk.js"
   ]
 }
