@@ -15,6 +15,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: initial;
 }
 .box-element {
     box-shadow: hsl(0, 0%, 60%) 0 0 16px;

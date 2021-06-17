@@ -1,0 +1,17 @@
+.dice.r{
+    display:flex;
+    justify-content:flex-end;
+    margin:0;
+    position: relative;
+    top:4px;
+}
+.dice.g{
+    display:flex;
+    margin-top: 64px;
+}
+.dice.y{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    margin-bottom: 60px;
+}
