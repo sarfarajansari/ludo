@@ -1,9 +1,11 @@
 import React,{ useEffect, useState} from 'react';
-import Board from "../helper/board/board"
+import BoardLogic from "../helper/board/boardlogic"
 import Alert from "../helper/alert/alert"
 import Loading from "../helper/alert/loading"
 import useForceUpdate from "../helper/forceupdate"
 import Editor from '../helper/board/editor';
+import { Switch ,Route} from "react-router-dom";
+
 
 
 const content = () => {
@@ -26,7 +28,9 @@ const content = () => {
     return (
         <div>
             <div className={storage.loading?"is_loading":""}>
-                <Board update={updateStorage} />
+            <Switch>
+                <Route exact path="/play/:token/" render={(props) => <BoardLogic {...props} update={updateStorage} />} />
+            </Switch>
             </div>
             {/* <Editor/> */}
             <Loading loading={storage.loading}/>

@@ -3,7 +3,17 @@ import initial_board from "./initial.js";
 
 const Editor = () => {
     const [classname, setclass] = useState("");
+    const [coordinates, setcoordinates] = useState([])
     const [Board, setBoard] = useState(initial_board);
+    // useEffect(() => {
+    // var currentstate=Board
+    // currentstate.forEach((row)=>{
+    //     row.forEach((box)=>{
+    //         box["children"]=[]
+    //     })
+    // })
+    // console.log(JSON.stringify(currentstate))
+    // }, []);
     const updateColor = (y, x) => {
         var current_board = Board;
         // current_board[y][x].class += " " + classname;
@@ -41,7 +51,13 @@ const Editor = () => {
                     return (
                       <div
                         className={box.class}
-                        onClick={() => updateColor(index1, index2)}
+                        onClick={() => {
+                          // updateColor(index1, index2)
+                          var c= coordinates
+                          c.push([index1, index2])
+                          console.log(JSON.stringify(c))
+                          setcoordinates(c)
+                        }}
                       >
                         {" "}
                         {box.value}{" "}
@@ -57,14 +73,3 @@ const Editor = () => {
 }
 
 export default Editor;
-
-
-    // var currentstate=Board
-    // currentstate.forEach((row)=>{
-    //     row.forEach((box)=>{
-    //         if(box.path){
-    //             box["class"]+=" path"
-    //         }
-    //     })
-    // })
-    // console.log(JSON.stringify(currentstate))

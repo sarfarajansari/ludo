@@ -5,11 +5,15 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Content from "./components/content.js/content"
 function App() {
   return (
-    <div id="grid">
-      <div id="navbar"></div>
-      <div id="content"><Content/></div>
-      <div id="footer"></div>
-    </div>
+    <Router basename="/ludo">
+        
+        <div id="grid">
+          <div id="navbar"></div>
+          <div id="content"><Content/></div>
+          <div id="footer"></div>
+        </div>
+      </Router>
+    
   );
 }
 

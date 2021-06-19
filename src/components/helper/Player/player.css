@@ -1,3 +1,12 @@
+@keyframes unfade {
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+    
+}
 .playerobject div{
     height:1em;
     width:1em;
@@ -5,6 +14,7 @@
     background-repeat:none;
     background-size: contain;
     border-radius: 50%;
+    animation: unfade 0.7s ease-in-out forwards;
 }
 .playerobject{
     display: inline-block;
@@ -29,7 +39,7 @@
 }
 .yellowplayerobject div{
     background-image:url("https://res.cloudinary.com/dnppl93qm/image/upload/v1623961306/media/ludo/captain_marvel_poster_1688.1537366019_gx4bdo.jpg");
-    opacity:0.6;
+    opacity:0.5;
 }
 
 .blueplayerobject{

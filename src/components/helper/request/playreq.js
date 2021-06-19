@@ -15,11 +15,9 @@ export default function Playreq(url,body,update="",set="",setplay=""){
     .then(handleErrors)
     .then(response=>response.json())
     .then((data)=>{
-        console.log(data)
         if (set){
             set(data)
         }
-        console.log(data.rolled)
         setplay([["rolled",data.rolled]])
     })
     .catch((error)=>{
