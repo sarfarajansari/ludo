@@ -1,4 +1,5 @@
 import 'antd/dist/antd.css';
+import "react-dice-complete/dist/react-dice-complete.css";
 import "./App.css";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Content from "./components/content.js/content"

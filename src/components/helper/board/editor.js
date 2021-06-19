@@ -6,7 +6,8 @@ const Editor = () => {
     const [Board, setBoard] = useState(initial_board);
     const updateColor = (y, x) => {
         var current_board = Board;
-        current_board[y][x].class += " " + classname;
+        // current_board[y][x].class += " " + classname;
+        // current_board[y][x]["safe"]=true;
         setBoard(current_board);
       };
       return (
@@ -22,7 +23,6 @@ const Editor = () => {
               <button onClick={() => console.log(JSON.stringify(Board))}>
                 print
               </button>
-              <button onClick={() => setview(true)}>view</button>
             </div>
             {Board.map((row, index1) => {
               return (

@@ -1,4 +1,3 @@
-
 const initial_board = [
   [
     { value: "", class: "green no-border", path: false },
@@ -34,7 +33,7 @@ const initial_board = [
     { value: "", class: "green no-border", path: false },
     { value: "", class: " path", path: true },
     { value: "", class: "red path", path: true },
-    { value: "", class: "red path", path: true },
+    { value: "", class: "red path star-position", path: true, safe: true },
     { value: "", class: "red no-border", path: false },
     {
       value: "",
@@ -57,7 +56,7 @@ const initial_board = [
     { value: "", class: " no-border", path: false },
     { value: "", class: " no-border", path: false },
     { value: "", class: "green no-border", path: false },
-    { value: "", class: " path", path: true },
+    { value: "", class: " path star-position", path: true, safe: true },
     { value: "", class: "red path", path: true },
     { value: "", class: " path", path: true },
     { value: "", class: "red no-border", path: false },
@@ -136,7 +135,7 @@ const initial_board = [
   ],
   [
     { value: "", class: " path", path: true },
-    { value: "", class: "green path", path: true },
+    { value: "", class: "green path star-position", path: true, safe: true },
     { value: "", class: " path", path: true },
     { value: "", class: " path", path: true },
     { value: "", class: " path", path: true },
@@ -147,7 +146,7 @@ const initial_board = [
     { value: "", class: " path", path: true },
     { value: "", class: " path", path: true },
     { value: "", class: " path", path: true },
-    { value: "", class: " path", path: true },
+    { value: "", class: " path star-position", path: true, safe: true },
     { value: "", class: " path", path: true },
     { value: "", class: " path", path: true },
   ],
@@ -181,7 +180,7 @@ const initial_board = [
   [
     { value: "", class: " path", path: true },
     { value: "", class: " path", path: true },
-    { value: "", class: " path", path: true },
+    { value: "", class: " path star-position", path: true, safe: true },
     { value: "", class: " path", path: true },
     { value: "", class: " path", path: true },
     { value: "", class: " path", path: true },
@@ -200,7 +199,7 @@ const initial_board = [
     { value: "", class: " path", path: true },
     { value: "", class: " path", path: true },
     { value: "", class: " path", path: true },
-    { value: "", class: "yellow path", path: true },
+    { value: "", class: "yellow path star-position", path: true, safe: true },
     { value: "", class: " path", path: true },
   ],
   [
@@ -279,7 +278,7 @@ const initial_board = [
     { value: "", class: "blue no-border", path: false },
     { value: "", class: " path", path: true },
     { value: "", class: "blue path", path: true },
-    { value: "", class: " path", path: true },
+    { value: "", class: " path star-position", path: true, safe: true },
     { value: "", class: "yellow no-border no-border", path: false },
     { value: "", class: " no-border", path: false },
     { value: "", class: " no-border", path: false },
@@ -302,7 +301,7 @@ const initial_board = [
       path: false,
     },
     { value: "", class: "blue no-border", path: false },
-    { value: "", class: "blue path", path: true },
+    { value: "", class: "blue path star-position", path: true, safe: true },
     { value: "", class: "blue path", path: true },
     { value: "", class: " path", path: true },
     { value: "", class: "yellow no-border", path: false },
@@ -338,6 +337,4 @@ const initial_board = [
     { value: "", class: "yellow no-border", path: false },
   ],
 ];
-export default initial_board
-
-
+export default initial_board;

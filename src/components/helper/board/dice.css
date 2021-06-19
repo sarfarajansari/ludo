@@ -1,17 +1,53 @@
-.dice.r{
+
+.dice.gr,.dice.by{
+    display:grid;
+    grid-template-columns: 2fr 1fr 2fr;
+}
+.dice.gr div,.dice.by div{
     display:flex;
-    justify-content:flex-end;
-    margin:0;
+    justify-content:center;
+}
+
+.box-element.greenturn{
+    background-color: rgb(127, 182, 127);
+}
+
+.box-element.redturn{
+    background-color: rgb(255, 219, 219);
+}
+
+.box-element.blueturn{
+    background-color: rgb(204, 204, 224);
+}
+
+.box-element.yellowturn{
+    background-color: rgb(250, 250, 169);
+}
+.faketurn-container{
     position: relative;
-    top:4px;
+    width: 100%;
+    height: 80px;
+    z-index: 1;
+    top: 80px;
 }
-.dice.g{
+
+.faketurn{
+    position: relative;
+    z-index:-500;
     display:flex;
-    margin-top: 64px;
+    justify-content:center;
+    align-items:center;
 }
-.dice.y{
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    margin-bottom: 60px;
+.faketurn div{
+    height:60px;
+    width:60px;
+}
+
+.faketurn-container-bottom{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    z-index: 1;
+    position:relative;
+    bottom: 80px;
 }

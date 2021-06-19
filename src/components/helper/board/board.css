@@ -8,15 +8,16 @@
     justify-content:space-around;
 }
 .row > div{
-    width: calc(1.3em );
-    height:calc(1.3em );
+    font-size:clamp(1.4rem,calc((100vw / 15) - 5px), 1.6rem);
+    width: calc(1em );
+    height:calc(1em );
     border:1px solid black;
 }
 
 .row .no-border{
     border:none;
-    width: calc(1.3em + 2px);
-    height:calc(1.3em + 2px);
+    width: calc(1em + 2px);
+    height:calc(1em + 2px);
 }
 
 .row .no-border.centre-grid{
@@ -51,10 +52,6 @@
     bottom:8px;
     left:8px;
 }
-.board-container{
-    display:flex;
-    justify-content:center;
-}
 .row .initial-position-bottom-right{
     border-radius: 50%;
     position:relative;
@@ -70,7 +67,7 @@
 }
 
 
-@media screen and (min-width: 720px){
+/* @media screen and (min-width: 720px){
     .row > div{
         width: calc(2em );
         height:calc(2em );
@@ -80,7 +77,7 @@
         width: calc(2em + 2px );
         height:calc(2em + 2px );
     }
-}
+} */
 
 
 
@@ -133,4 +130,10 @@
 
 .background-split-top-right{
     background-image: -webkit-linear-gradient(315deg, red 50%, yellow 50%);
+}
+
+.star-position{
+    background-image: url("https://res.cloudinary.com/dnppl93qm/image/upload/v1624092259/media/ludo/latest_nm8ycl_wzjsof.png");
+    background-repeat: none;
+    background-size: cover;
 }

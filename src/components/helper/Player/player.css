@@ -1,6 +1,6 @@
 .playerobject div{
-    height:1.2em;
-    width:1.2em;
+    height:1em;
+    width:1em;
     opacity:0.7;
     background-repeat:none;
     background-size: contain;
@@ -37,11 +37,4 @@
 }
 .blueplayerobject div{
     background-image:url("https://res.cloudinary.com/dnppl93qm/image/upload/v1623960505/media/ludo/blue_sq2xbx.jpg");
-}
-
-@media (min-width:720px){
-    .playerobject div{
-        height:1.8em;
-        width:1.8em;
-    }
 }

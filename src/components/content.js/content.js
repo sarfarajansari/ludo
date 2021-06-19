@@ -27,9 +27,8 @@ const content = () => {
         <div>
             <div className={storage.loading?"is_loading":""}>
                 <Board update={updateStorage} />
-
             </div>
-            <Editor/>
+            {/* <Editor/> */}
             <Loading loading={storage.loading}/>
             <Alert alert={storage.alert} update={updateStorage} alertType={storage.alertType}/>
         </div>
