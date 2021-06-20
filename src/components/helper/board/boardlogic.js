@@ -11,26 +11,52 @@ import GetPlayer from "../Player/GetPlayer"
 
 const BoardLogic = (props) => {
   const Token =props.match.params.token;
+  const [Board, setBoard] = useState(initial_board);
+  const forceUpdate = useForceUpdate();
   const playersList =[0,1,2,3]
   const [Game, setGame] = useState({
     players: [],
     turn:0,
   });
+
+
   const [turn, setturn] = useState({
     rolled: false,
     old: [0, 0],
-    dice:6
+    dice:6,
   });
-  const [Board, setBoard] = useState(initial_board);
-  const forceUpdate = useForceUpdate();
+
+
   const play = (colorId,number)=>{
     if (Game.turn== colorId && turn.rolled){
+      var initial = Game.players[colorId].coordinates[number].initial
+      updateturn([["rolled",false]])
+      var steps =initial && turn.dice===6?6:1;
+      var fake =steps===1 && turn.dice >1?true:false;
       Playreq("/play/" + Token + "/",
-      {colorId: colorId,number:number,step:turn.dice},
+      {colorId: colorId,number:number,step:steps},
       props.update,
       setGame,updateturn)
+
+      var fake = true
+      var counter = 0;
+      if(turn.dice!==1 && !initial){
+        var interval = setInterval(()=>{
+          counter++;
+          if(counter===turn.dice-1){
+            clearInterval(interval);
+            fake=false;
+          }
+          console.log(fake)
+          Playreq("/play/" + Token + "/",
+          {colorId: colorId,number:number,step:1,fake:fake},
+          props.update,
+          setGame,updateturn)
+        },300)
+      
     }
   }
+}
   
 
   const PL = [[
@@ -51,6 +77,8 @@ const BoardLogic = (props) => {
     {"colorId":3,"number":2,"value":<Playerobjects className={" greenplayerobject"} step={play} colorId={3} number={2}/>},
     {"colorId":3,"number":3,"value":<Playerobjects className={" greenplayerobject"} step={play} colorId={3} number={3}/>}]
   ];
+
+
   useEffect(() => {
     props.update([["loading", true]]);
     setInterval(forceUpdate, 10);
@@ -70,6 +98,7 @@ const BoardLogic = (props) => {
         box.children=[]
       })
     })
+
     Game.players.forEach((player) => {
       player.coordinates.forEach((c) => {
         b[c.y][c.x]["children"].push(PL[player.colorId][c.number])
@@ -79,6 +108,8 @@ const BoardLogic = (props) => {
     });
     setBoard(b);
   }, [Game.players,Game.turn]);
+
+
   const updateturn=(lists)=>{
     var current_state = turn
     for(var i =0 ;i<lists.length;i++){
@@ -87,17 +118,17 @@ const BoardLogic = (props) => {
     setturn(current_state)
   }
 
-    const checkturn = (number) =>{
-      if(!Game.players[Game.turn].onground && number <6){
-        Playreq("/nextplayer/" + Token + "/",
-        {},
-        props.update,
-        setGame,updateturn)
-      }
-      if(Game.players[Game.turn].singleturn.value && number<6){
-        play(Game.turn,Game.players[Game.turn].singleturn.number)
-      }
+  const checkturn = (number) =>{
+    if(!Game.players[Game.turn].onground && number <6){
+      Playreq("/nextplayer/" + Token + "/",
+      {},
+      props.update,
+      setGame,updateturn)
     }
+    if(Game.players[Game.turn].singleturn.value && number<6){
+      play(Game.turn,Game.players[Game.turn].singleturn.number)
+    }
+  }
   return <BoardElements data={[Game,turn,setturn,Board,updateturn,checkturn]}/>
 };
 export default BoardLogic;
