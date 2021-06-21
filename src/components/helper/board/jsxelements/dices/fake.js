@@ -2,13 +2,11 @@ import React from 'react';
 
 const Fake = (props) => {
     const turn =[3,0,2,1]
-    const [current,state,setstate] = props.state
+    const [Game,updateGame] = props.state
     const roll =(i)=>{
-        if(turn[i]===current && !state.rolled){
+        if(turn[i]===Game.turn && !Game.rolled){
             document.getElementsByClassName("die-container")[i].click()
-            var currentstate = state
-            currentstate.rolled = true
-            setstate(currentstate)
+            updateGame([["rolled",true]])
         }
     }
     return (

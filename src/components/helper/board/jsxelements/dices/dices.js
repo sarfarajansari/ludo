@@ -19,7 +19,7 @@ const Dices = (props) => {
       ],
     },
   ];
-  const [n,updateturn,checkturn,turn]=props.data
+  const [n,updategame,checkturn,turn]=props.data
 
   const getdiv=(k)=> k===0?<div></div>:<></>
   return (
@@ -37,7 +37,7 @@ const Dices = (props) => {
               <ReactDice
                 numDice={1}
                 rollDone={(num) => {
-                  updateturn([["dice", num]]);
+                  updategame([["dice", num],["rolled",true]]);
                   checkturn(num);
                 }}
                 margin={0}

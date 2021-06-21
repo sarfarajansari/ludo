@@ -6,14 +6,14 @@ import Gameboard from './Gameboard';
 
 
 const BoardElements = (props) => {
-    const [Game,turn,setturn,Board,updateturn,checkturn] = props.data
+    const [Game,Board,updategame,checkturn] = props.data
     return (
         <div className="board">
-          <Fake className={"dice faketurn-container gr"} state={[Game.turn,turn, setturn]} index1={0} index2={1}/>
-          <Dices data={[0,updateturn,checkturn,Game.turn]}/>
-          <Gameboard data={[Board,updateturn]}/>
-          <Dices data={[1,updateturn,checkturn,Game.turn]}/>
-          <Fake className={"dice faketurn-container-bottom gr"} state={[Game.turn,turn, setturn]}  index1={2} index2={3}/>
+          <Fake className={"dice faketurn-container gr"} state={[Game,updategame]} index1={0} index2={1}/>
+          <Dices data={[0,updategame,checkturn,Game.turn]}/>
+          <Gameboard data={[Board,updategame]}/>
+          <Dices data={[1,updategame,checkturn,Game.turn]}/>
+          <Fake className={"dice faketurn-container-bottom gr"} state={[Game,updategame]}  index1={2} index2={3}/>
         </div>
       );
 }

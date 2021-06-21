@@ -21,6 +21,7 @@
     border-radius: 50%;
 }
 .greenplayerobject{
+    border: 1.5px solid green;
     background-color: green;
 }
 .greenplayerobject div{
@@ -28,6 +29,7 @@
 }
 
 .redplayerobject{
+    border: 1.5px solid red;
     background-color: red;
 }
 .redplayerobject div{
@@ -35,6 +37,7 @@
 }
 
 .yellowplayerobject{
+    border: 1.5px solid yellow;
     background-color: yellow;
 }
 .yellowplayerobject div{
@@ -43,6 +46,7 @@
 }
 
 .blueplayerobject{
+    border: 1.5px solid blue;
     background-color: blue;
 }
 .blueplayerobject div{
