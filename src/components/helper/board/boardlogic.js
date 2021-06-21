@@ -29,34 +29,14 @@ const BoardLogic = (props) => {
 
   const play = (colorId,number)=>{
     if (Game.turn== colorId && turn.rolled){
-      var initial = Game.players[colorId].coordinates[number].initial
-      updateturn([["rolled",false]])
-      var steps =initial && turn.dice===6?6:1;
-      var fake =steps===1 && turn.dice >1?true:false;
       Playreq("/play/" + Token + "/",
-      {colorId: colorId,number:number,step:steps},
+      {colorId: colorId,number:number,step:turn.dice},
       props.update,
       setGame,updateturn)
-
-      var fake = true
-      var counter = 0;
-      if(turn.dice!==1 && !initial){
-        var interval = setInterval(()=>{
-          counter++;
-          if(counter===turn.dice-1){
-            clearInterval(interval);
-            fake=false;
-          }
-          console.log(fake)
-          Playreq("/play/" + Token + "/",
-          {colorId: colorId,number:number,step:1,fake:fake},
-          props.update,
-          setGame,updateturn)
-        },300)
       
     }
   }
-}
+
   
 
   const PL = [[

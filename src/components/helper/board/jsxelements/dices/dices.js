@@ -29,6 +29,7 @@ const Dices = (props) => {
           return (
             <>
             <div
+              
               className={
                 turn === o.turn ? "box-element " + o.class : "box-element"
               }
