@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/ludo/static/css/main.70f839ed.chunk.css",
-    "main.js": "/ludo/static/js/main.6534217f.chunk.js",
-    "main.js.map": "/ludo/static/js/main.6534217f.chunk.js.map",
-    "runtime-main.js": "/ludo/static/js/runtime-main.d317c376.js",
-    "runtime-main.js.map": "/ludo/static/js/runtime-main.d317c376.js.map",
+    "main.css": "/ludo/static/css/main.0839c814.chunk.css",
+    "main.js": "/ludo/static/js/main.7d39832f.chunk.js",
+    "main.js.map": "/ludo/static/js/main.7d39832f.chunk.js.map",
+    "runtime-main.js": "/ludo/static/js/runtime-main.3a6e51cc.js",
+    "runtime-main.js.map": "/ludo/static/js/runtime-main.3a6e51cc.js.map",
     "static/css/2.a6bb2b95.chunk.css": "/ludo/static/css/2.a6bb2b95.chunk.css",
-    "static/js/2.7cd44962.chunk.js": "/ludo/static/js/2.7cd44962.chunk.js",
-    "static/js/2.7cd44962.chunk.js.map": "/ludo/static/js/2.7cd44962.chunk.js.map",
-    "static/js/3.353b7d65.chunk.js": "/ludo/static/js/3.353b7d65.chunk.js",
-    "static/js/3.353b7d65.chunk.js.map": "/ludo/static/js/3.353b7d65.chunk.js.map",
+    "static/js/2.b9ee48ac.chunk.js": "/ludo/static/js/2.b9ee48ac.chunk.js",
+    "static/js/2.b9ee48ac.chunk.js.map": "/ludo/static/js/2.b9ee48ac.chunk.js.map",
+    "static/js/3.99e2c9fc.chunk.js": "/ludo/static/js/3.99e2c9fc.chunk.js",
+    "static/js/3.99e2c9fc.chunk.js.map": "/ludo/static/js/3.99e2c9fc.chunk.js.map",
     "index.html": "/ludo/index.html",
     "static/css/2.a6bb2b95.chunk.css.map": "/ludo/static/css/2.a6bb2b95.chunk.css.map",
-    "static/css/main.70f839ed.chunk.css.map": "/ludo/static/css/main.70f839ed.chunk.css.map",
-    "static/js/2.7cd44962.chunk.js.LICENSE.txt": "/ludo/static/js/2.7cd44962.chunk.js.LICENSE.txt",
+    "static/css/main.0839c814.chunk.css.map": "/ludo/static/css/main.0839c814.chunk.css.map",
+    "static/js/2.b9ee48ac.chunk.js.LICENSE.txt": "/ludo/static/js/2.b9ee48ac.chunk.js.LICENSE.txt",
     "static/media/dicerolling.084392b4.mp3": "/ludo/static/media/dicerolling.084392b4.mp3",
     "static/media/playermusic.0c680333.mp3": "/ludo/static/media/playermusic.0c680333.mp3"
   },
   "entrypoints": [
-    "static/js/runtime-main.d317c376.js",
+    "static/js/runtime-main.3a6e51cc.js",
     "static/css/2.a6bb2b95.chunk.css",
-    "static/js/2.7cd44962.chunk.js",
-    "static/css/main.70f839ed.chunk.css",
-    "static/js/main.6534217f.chunk.js"
+    "static/js/2.b9ee48ac.chunk.js",
+    "static/css/main.0839c814.chunk.css",
+    "static/js/main.7d39832f.chunk.js"
   ]
 }
