@@ -1,4 +1,5 @@
 import React from 'react';
+import "./background.css";
 
 const Gameboard = (props) => {
     const [Board,updateturn] =props.data;
@@ -19,7 +20,6 @@ const Gameboard = (props) => {
                     <div
                       key={index2}
                       className={box.class}
-                      onClick={() =>updateturn([["old",[index1,index2]]])}
                     >
                       {" "}
                       {box.value}{" "}

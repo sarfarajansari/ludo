@@ -2,6 +2,7 @@
     display:grid;
     justify-content:center;
     position: relative;
+    z-index: 32;
 }
 .row{
     display: flex;

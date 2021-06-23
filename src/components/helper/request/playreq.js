@@ -1,11 +1,14 @@
 import app_data from "./app_data"
 import {handleErrors} from "./get_request"
 import GetPlayer from "../Player/GetPlayer"
+import song from "../Player/playermusic.mp3";
 
 
 
 export default function Playreq(url,body,update,updateGame,storage){
     const [Board, setBoard,play,setGame]=storage
+    const audio = new Audio(song);
+    audio.playbackRate=1.2;
     body.token =  localStorage.getItem('LudoToken')
     var headers = { 'Content-Type': 'application/json' }
     const requestdata = {
@@ -32,6 +35,8 @@ export default function Playreq(url,body,update,updateGame,storage){
                     }
                     
                     if(!stop){
+                        audio.play()
+                        
                         var b = Board
                         var children= b[old[0]][old[1]].children
                         var index =children.length-1
@@ -43,6 +48,7 @@ export default function Playreq(url,body,update,updateGame,storage){
                             
                             b[data.steps[0][0]][data.steps[0][1]].children.push(element)
                             b[data.steps[0][0]][data.steps[0][1]].value= GetPlayer(b[data.steps[0][0]][data.steps[0][1]].children,play)
+                            
                             setBoard(b)
                             old = data.steps[0]
                             data.steps.splice(0,1)

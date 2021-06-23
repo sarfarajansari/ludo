@@ -8,8 +8,8 @@
     
 }
 .playerobject div{
-    height:1em;
-    width:1em;
+    height:1.3em;
+    width:1.3em;
     opacity:0.7;
     background-repeat:none;
     background-size: contain;
@@ -29,7 +29,7 @@
 }
 
 .redplayerobject{
-    border: 1.5px solid red;
+    border: 2.5px solid red;
     background-color: red;
 }
 .redplayerobject div{

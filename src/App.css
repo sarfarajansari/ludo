@@ -2,6 +2,8 @@
     display: grid;
     grid-template-rows: minmax(5rem,auto) minmax(calc(100vh - 5rem - 10rem),auto) minmax(10rem,auto);
     grid-template-areas: "navbar" "content" "footer";
+    position: relative;
+    z-index: 34;
 }
 #navbar{
     grid-area: navbar;

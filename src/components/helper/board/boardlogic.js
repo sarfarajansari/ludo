@@ -49,35 +49,7 @@ const BoardLogic = (props) => {
     setBoard(b);
   }, [Game.players]);
 
-  // useEffect(() => {
-  //   var old = Game.old
-  //   var i = 0
-  //   var length = Game.steps.length
-
-  //   if(length!==0){
-  //     const interval = setInterval(()=>{
-  //       if(i>=length){
-  //         clearInterval(interval)
-  //       }
-  //       var b = Board
-  //       var children= b[old[0]][old[1]].children
-  //       var index =children.length-1
-  //       var element = index>-1? children[index]:false
-  //       if (element) {
-  //         b[old[0]][old[1]].children.splice(index,1)
-  //         b[old[0]][old[1]].value = GetPlayer(b[old[0]][old[1]].children,play)
-
-  //         console.log(i)
-  //         b[Game.steps[i][0]][Game.steps[i][1]].children.push(element)
-  //         b[Game.steps[i][0]][Game.steps[i][1]].value= GetPlayer(b[Game.steps[i][0]][Game.steps[i][1]].children,play)
-  //         setBoard(b)
-
-  //         old = Game.steps[i]
-  //         i++;
-  //       }
-  //     },300)
-  //   }
-  // },[Game.steps])
+  
 
   const play = (colorId,number)=>{
     if (Game.turn== colorId && Game.rolled){

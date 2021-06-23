@@ -1,5 +1,5 @@
 import React from 'react';
-
+import song from "./dicerolling.mp3"
 const Fake = (props) => {
     const turn =[3,0,2,1]
     const [Game,updateGame] = props.state
