@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ludo/static/css/main.8bc1d07e.chunk.css",
-    "main.js": "/ludo/static/js/main.5b09e0a1.chunk.js",
-    "main.js.map": "/ludo/static/js/main.5b09e0a1.chunk.js.map",
+    "main.js": "/ludo/static/js/main.bcb22f57.chunk.js",
+    "main.js.map": "/ludo/static/js/main.bcb22f57.chunk.js.map",
     "runtime-main.js": "/ludo/static/js/runtime-main.bf04e1a1.js",
     "runtime-main.js.map": "/ludo/static/js/runtime-main.bf04e1a1.js.map",
     "static/css/2.0878f1e5.chunk.css": "/ludo/static/css/2.0878f1e5.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.0878f1e5.chunk.css",
     "static/js/2.d4862cd6.chunk.js",
     "static/css/main.8bc1d07e.chunk.css",
-    "static/js/main.5b09e0a1.chunk.js"
+    "static/js/main.bcb22f57.chunk.js"
   ]
 }
