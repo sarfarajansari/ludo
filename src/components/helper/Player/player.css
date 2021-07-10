@@ -15,6 +15,7 @@
     background-size: contain;
     border-radius: 50%;
     animation: unfade 0.7s ease-in-out forwards;
+    cursor:pointer;
 }
 .playerobject{
     display: inline-block;

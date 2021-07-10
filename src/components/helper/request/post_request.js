@@ -3,9 +3,8 @@ import {handleErrors} from "./get_request"
 
 
 
-export default function Postreq(url,body,update,set="",){
+export default function Postreq(url,body,update,set=""){
     update([["loading",true]])
-    body.token =  localStorage.getItem('LudoToken')
     var headers = { 'Content-Type': 'application/json' }
     const requestdata = {
         method: 'POST',

@@ -1,23 +1,26 @@
 import React,{ useEffect, useState} from 'react';
-import BoardLogic from "../helper/board/boardlogic"
 import Alert from "../helper/alert/alert"
 import Loading from "../helper/alert/loading"
 import useForceUpdate from "../helper/forceupdate"
-import Editor from '../helper/board/editor';
 import { Switch ,Route} from "react-router-dom";
+import Localstarter from "../local/local_starter/localstarter"
+import LocalCreator from "../local/localcreator/localCreator"
+import modeselector from "../modeSeletor/modeselector"
+import OnlineGame from "../online/OnlineGame"
+import "./content.css";
 
 
 
-const content = () => {
+const Content = (props) => {
+    const sidebar = props.sidebar
     const forceUpdate =useForceUpdate()
     const [storage, setStorage] = useState({
         alert:"",
         alertType:"error",
-        loading:false
+        loading:false,
+        gamestarted:0
     })
-    useEffect(() => {
-        setInterval(forceUpdate,10)
-    },[])
+    useEffect(() =>setInterval(forceUpdate,10),[])
     const updateStorage =(lists)=>{
         var current_state = storage
         for(var i =0 ;i<lists.length;i++){
@@ -29,14 +32,18 @@ const content = () => {
         <div>
             <div className={storage.loading?"is_loading":""}>
             <Switch>
-                <Route exact path="/play/:token/" render={(props) => <BoardLogic {...props} update={updateStorage} />} />
+                <Route exact path="/local/play/:token/" render={(props) => <Localstarter {...props} update={updateStorage} sidebar={sidebar} storage={storage} />} />
+                <Route exact path="/online/play/:gtoken/:ptoken/" render={(props) => <OnlineGame {...props} update={updateStorage} sidebar={sidebar}/>}/>
+                <div className="game-grid">
+                    <Route exact path="/newgame/" render={(props) => <LocalCreator {...props} update={updateStorage} storage={storage} />} />
+                    <Route exact path="/" component={modeselector}/>
+                </div>
             </Switch>
             </div>
-            {/* <Editor/> */}
             <Loading loading={storage.loading}/>
             <Alert alert={storage.alert} update={updateStorage} alertType={storage.alertType}/>
         </div>
     );
 }
 
-export default content;
+export default Content;

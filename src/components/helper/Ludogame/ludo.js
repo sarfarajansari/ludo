@@ -2,6 +2,15 @@ import Player from './player';
 import {colors} from "./initial"
 import Paths from './paths'
 
+export const get_index=(players,colorId)=>{
+    let index = false;
+    players.forEach((player,i)=>{
+        if(player.colorId==colorId){
+            index=i;
+        }
+    })
+    return index;
+}
 class Ludo{
     constructor(n){
         this.n =n;
@@ -16,7 +25,24 @@ class Ludo{
         this.rolled = false;
         this.dice = 6;
         this.old = [0,0]
-        this.steps=[]
+        this.steps=[];
+        this.extra_turn = false;
+    }
+    data(){
+        let players = []
+        this.players.forEach((player)=>{
+            players.push(player.data())
+        })
+        return {
+            ended: this.is_ended(),
+            winnerId:this.winnerId,
+            winner:this.winner,
+            runnerup2: this.runnerup2,
+            runnerup1: this.runnerup1,
+            loser: this.loser,
+            turn: this.turn,
+            players:players
+        }
     }
     PlayersList(){
         let list =[];
@@ -36,15 +62,24 @@ class Ludo{
         this.turn = next
     }
     update_turn(stepped){
+        let r = true
         if(!stepped){
-            this.players[this.turn].coordinates.forEach((c) =>{
+            this.players[get_index(this.players,this.turn)].coordinates.forEach((c) =>{
                 if(!c.initial && !c.reached){
-                    return false;
+                    r = false
                 }
             })
         }
+        if(this.extra_turn){
+            // for attacks
+            this.extra_turn = false;
+            return true
+        }
+        if(!r){
+            return r
+        }
         this.get_next_turn()
-        return true
+        return r
 
     }
     setPlayers(){
@@ -56,10 +91,11 @@ class Ludo{
     }
     check_attack(c){
         this.players.forEach((player)=>{
-            if(!player.colorId ==c.colorId){
+            if(player.colorId !== c.colorId){
                 player.coordinates.forEach((b)=>{
-                    if(b.x === c.x && b.y == c.y){
-                        this.players[b.colorId].coordinates[b.number].initialize()
+                    if(b.x === c.x && b.y === c.y){
+                        this.players[get_index(this.players,b.colorId)].coordinates[b.number].initialize()
+                        this.extra_turn=true
                     }
                 })
             }
@@ -70,13 +106,11 @@ class Ludo{
         if( step> 6 || step<1 || c.reached || c.colorId!==this.turn){
             return r
         }
-        this.players[c.colorId].coordinates[c.number]
         if(c.initial){
             if(step==6){
-                console.log(this.players[c.colorId].coordinates[c.number])
-                this.players[c.colorId].coordinates[c.number].y = Paths[c.colorId][0][0]
-                this.players[c.colorId].coordinates[c.number].x = Paths[c.colorId][0][1]
-                this.players[c.colorId].coordinates[c.number].initial = false
+                this.players[get_index(this.players,c.colorId)].coordinates[c.number].y = Paths[c.colorId][0][0]
+                this.players[get_index(this.players,c.colorId)].coordinates[c.number].x = Paths[c.colorId][0][1]
+                this.players[get_index(this.players,c.colorId)].coordinates[c.number].initial = false
                 r[0]=true
                 return r
             }
@@ -92,14 +126,14 @@ class Ludo{
                 step_up++;
                 r[1].push(pos)
             }
-            if(step_up===step){
-                this.players[c.colorId].coordinates[c.number].y =pos[0]
-                this.players[c.colorId].coordinates[c.number].x=pos[1]
+            if(step_up===step && start){
+                this.players[get_index(this.players,c.colorId)].coordinates[c.number].y =pos[0]
+                this.players[get_index(this.players,c.colorId)].coordinates[c.number].x=pos[1]
                 if(c.y===Paths[c.colorId][56][0] && c.x===Paths[c.colorId][56][1]){
-                    this.players[c.colorId].coordinates[c.number].reached = true;
+                    this.players[get_index(this.players,c.colorId)].coordinates[c.number].reached = true;
                 }
                 if (!c.safe()){
-                    this.check_attack(this.players[c.colorId].coordinates[c.number])
+                    this.check_attack(this.players[get_index(this.players,c.colorId)].coordinates[c.number])
                 }
                 r[0]=true;
                 start=false;
@@ -112,5 +146,68 @@ class Ludo{
         return r
 
     }
+
+    initialize(g){
+        this.dice = g.dice;
+        this.turn= g.turn;
+        this.winnerId = g.winnerId;
+        this.runnerup1 = g.runnerup1;
+        this.runnerup2 = g.runnerup2;
+        this.rolled = g.rolled;
+        this.old = g.old;
+        this.loser = g.loser;
+        if(g.get_winner){
+            this.winner = g.get_winner
+        }
+        this.steps = g.steps;
+
+        for(let i = 0; i<g.players.length; i++){
+            this.players[i].color = g.players[i].color
+            this.players[i].name = g.players[i].name
+            this.players[i].colorId = g.players[i].colorId
+            this.players[i].complete = g.players[i].complete
+            
+            for(let j=0;j<4;j++){
+                this.players[i].coordinates[j].colorId=g.players[i].colorId
+                this.players[i].coordinates[j].initial =g.players[i].coordinates[j].initial
+                this.players[i].coordinates[j].reached=g.players[i].coordinates[j].reached
+                this.players[i].coordinates[j].number =g.players[i].coordinates[j].number
+                this.players[i].coordinates[j].x =g.players[i].coordinates[j].x
+                this.players[i].coordinates[j].y =g.players[i].coordinates[j].y
+            }
+
+        }
+    }
+    is_ended(){
+        if(this.ended){
+            return true
+        }
+        let ended = true
+        this.players.forEach((player)=>{
+            if(player.is_complete()){
+                if(!this.winner){
+                    this.winner = player.name?player.name:player.color
+                }
+                else if(!this.runnerup1){
+                    this.runnerup1= player.name?player.name:player.color
+                }
+                else if(!this.runnerup2){
+                    this.runnerup2 = player.name?player.name:player.color
+                }
+                else{
+                    this.loser= player.name?player.name:player.color
+                }
+                
+            }
+            else{
+                ended= false
+            }
+        })
+        return ended
+    }
+    // data(){
+    //     return
+    // }
+
 }
-export default ludo;
+export default Ludo;

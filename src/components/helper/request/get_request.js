@@ -15,10 +15,6 @@ export default  function Getreq(url,set,update) {
     .then((data) =>{
         if(data.status==0){
             set(data)
-            update([["loading",false]])
-            if ("token" in data) {
-                localStorage.setItem("taskToken",data.token)
-            }
         }
         else{
             update([["alert",""]])

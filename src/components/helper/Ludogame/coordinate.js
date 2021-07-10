@@ -1,5 +1,5 @@
 import initial_position from "./initial";
-import {safe} from "./paths"
+import Paths,{safe} from "./paths"
 
 class Coordinate{
     constructor(number,colorId){
@@ -9,6 +9,10 @@ class Coordinate{
         this.initial = true;
         this.reached = false;
         this.colorId = colorId;
+    }
+    is_reached(){
+        let final = Paths[this.colorId][56]
+        return final[0] == this.y && final[1]==this.x
     }
     initialize(){
         this.y = initial_position[this.colorId][this.number][0]
@@ -28,6 +32,14 @@ class Coordinate{
             }
         })
         return safebool;
+    }
+    data(){
+        return {
+            x: this.x,
+            y: this.y,
+            initial: this.initial,
+            reached: this.is_reached(),
+        }
     }
         
 }

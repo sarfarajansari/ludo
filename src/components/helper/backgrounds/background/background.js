@@ -1,4 +1,5 @@
 import "./bg.css";
+import React from "react"
 
 const Background = (props) => {
     return (

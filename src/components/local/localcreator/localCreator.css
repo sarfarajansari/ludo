@@ -1,0 +1,83 @@
+.creator-container h1{
+    color: aliceblue;
+    text-align: center;
+    text-transform: uppercase;
+}
+.creator-container h3{
+    color: rgb(16, 133, 235);
+    text-align: center;
+    padding:1px;
+    text-transform: uppercase;
+}
+.creator-container input{
+    background:none;
+    outline:none;
+    border:1px solid rgb(54, 51, 51);
+    border-radius: 0.5rem;
+    margin: 0.3rem;
+}
+.creator-container input:focus{
+    padding:0.4rem 0.7rem;
+}
+
+.game-players>div{
+    display:flex;
+    align-items:center;
+    border: 1px solid black;
+    flex-direction: column;
+    padding:5px;
+    margin: 2px;
+}
+
+.player-select-obj{
+    /* font-size: clamp(16px,1.4vw,30px); */
+    width: 80px;
+    height: 80px;
+    background-repeat:none;
+    background-size: contain;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#startgame{
+    border:0;
+    background:none;
+    display:block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px clamp(50px,13vw,100px);
+    outline:none;
+    color: white;
+    border-radius:1.5rem;
+    transition: 0.25s;
+    cursor: pointer;
+}
+#startgame:hover{
+    background-color:#2ecc71;
+}
+#selectedplayer{
+    background-color: rgb(93, 199, 93);
+}
+.game-players{
+    display:grid;
+    grid-template-columns: 50% 50%;
+}
+@media screen and (min-width: 720px){
+    .game-players>div{
+        margin:5px;
+    }
+    .player-select-obj{
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media screen and (min-width: 960px){
+    .game-players>div{
+        margin:10px;
+    }
+    .player-select-obj{
+        width: 160px;
+        height: 160px;
+    }
+}

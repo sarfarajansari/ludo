@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+.header-text h1{
+    font-family: Pacifico ,Arial, Helvetica, sans-serif;
+    color: rgb(247, 95, 78);
+    margin: 5px 0 5px 5%;
+    
+}
+.header-text{
+    display:flex;
+}
+.header-container{
+    position: fixed;
+    width: 100%;
+    z-index: 40;
+    /* background-image: url("https://res.cloudinary.com/dnppl93qm/image/upload/c_fill,e_blur:350,g_auto,h_230,w_1300/b_rgb:000000,e_gradient_fade,y_-0.5/v1625659295/media/ludo/8-years-of-the-avengers-how-joss-whedons-risk-became-crucial_5z9w_h9quzp.jpg"); */
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-color: #152c4e;
+    margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 720px){
+    .header-text{
+        display:flex;
+        justify-content:center;
+    }
+}

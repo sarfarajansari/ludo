@@ -1,3 +1,5 @@
+import React from "react";
+
 const GetPlayer = (list,step)=>{
     const update =()=>{
         list.forEach((obj)=>{

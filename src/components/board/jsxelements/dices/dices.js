@@ -31,7 +31,7 @@ const Dices = (props) => {
             <div
               
               className={
-                turn === o.turn ? "box-element " + o.class : "box-element"
+                turn === o.turn ? "box-element "  : "box-element "+ o.class
               }
             >
               <ReactDice
