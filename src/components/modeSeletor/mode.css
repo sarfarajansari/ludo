@@ -1,4 +1,4 @@
-.mode-container h1{
+.mode-container h1,.page-header h1{
     color: aliceblue;
     text-align: center;
     text-transform: uppercase;
@@ -20,4 +20,11 @@
 }
 .btn:hover{
     background-color:#2ecc71;
+}
+
+.btn.primary{
+    border: 2px solid #3e7ae9;
+}
+.btn.primary:hover{
+    background-color:#3e7ae9;
 }

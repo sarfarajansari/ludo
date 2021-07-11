@@ -10,7 +10,7 @@ const [state, setstate] = useState({})
 const update =props.update
 
     useEffect(() => {
-        props.update([["loading", true]]);
+        props.update([["loading", true],["backurl","/local/"]]);
         var headers = { 'Content-Type': 'application/json' }
         const requestdata = {
             method: 'POST',

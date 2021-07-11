@@ -20,24 +20,6 @@
     padding:0.4rem 0.7rem;
 }
 
-.game-players>div{
-    display:flex;
-    align-items:center;
-    border: 1px solid black;
-    flex-direction: column;
-    padding:5px;
-    margin: 2px;
-}
-
-.player-select-obj{
-    /* font-size: clamp(16px,1.4vw,30px); */
-    width: 80px;
-    height: 80px;
-    background-repeat:none;
-    background-size: contain;
-    border-radius: 5px;
-    cursor: pointer;
-}
 #startgame{
     border:0;
     background:none;
@@ -54,30 +36,4 @@
 }
 #startgame:hover{
     background-color:#2ecc71;
-}
-#selectedplayer{
-    background-color: rgb(93, 199, 93);
-}
-.game-players{
-    display:grid;
-    grid-template-columns: 50% 50%;
-}
-@media screen and (min-width: 720px){
-    .game-players>div{
-        margin:5px;
-    }
-    .player-select-obj{
-        width: 120px;
-        height: 120px;
-    }
-}
-
-@media screen and (min-width: 960px){
-    .game-players>div{
-        margin:10px;
-    }
-    .player-select-obj{
-        width: 160px;
-        height: 160px;
-    }
 }

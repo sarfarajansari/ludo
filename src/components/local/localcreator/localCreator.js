@@ -1,8 +1,9 @@
-import React ,{ useEffect, useState } from "react";
+import React ,{ useState } from "react";
 import "./localCreator.css";
 import playerData from "./playerdata"
 import Postreq from "../../helper/request/post_request";
 import { Redirect} from "react-router-dom"
+import Selector from "../../playerSelector/selector"
 
 const LocalCreator = (props) => {
     const [players, setplayers] = useState(playerData)
@@ -10,6 +11,8 @@ const LocalCreator = (props) => {
         status:1,
         token:""
     })
+
+
     const select = (index)=>{
         let p = players;
         p[index].selected =!players[index].selected;
@@ -48,21 +51,14 @@ const LocalCreator = (props) => {
         return <Redirect to={"/local/play/"+ state.token}/>
     }
     return (
-        <div className="creator-container">
-            <h1>New Game</h1><hr/>
-            <h3>Select players</h3>
-            <div className="game-players">
-                {players.map((player,index) =>{
-                    return(
-                        // style={{backgroundColor:player.color}}
-                        <div  id={player.selected?"selectedplayer":""} >
-                            <div className="player-select-obj" style={{backgroundImage:`url(${player.img})`,border:"4px solid " + player.color}} onClick={()=>select(index)}></div>
-                        </div>
-                    )
-                })}
+        <>
+            <div className="creator-container">
+                <h1>New Game</h1><hr/>
+                <h3>Select players</h3>
+                <Selector onclick={select} players={players}/>
+                <div><button id="startgame" onClick={startgame}>START GAME</button> </div>
             </div>
-            <div><button id="startgame" onClick={startgame}>START GAME</button> </div>
-        </div>
+        </>
     );
 }
 
