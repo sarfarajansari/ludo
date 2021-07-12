@@ -5,7 +5,7 @@ const fetchGame = (url,setGame,setMessages,setPlayer,update=false)=>{
     fetch(app_data.url+url)
     .then((response)=>response.json())
     .then((data)=>{
-        if(data.status===0){console.log(data)}
+        if(data.status===0){console.log(data.game)}
         if("messages" in data){
             setMessages(data.messages,2)
         }

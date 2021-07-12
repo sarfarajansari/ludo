@@ -2,10 +2,9 @@ import React from 'react';
 import "./background.css";
 
 const Gameboard = (props) => {
-    const [Board,updateturn] =props.data;
     return (
         <>
-            {Board.map((row, index1) => {
+            {props.data.map((row, index1) => {
             return (
               <div key={index1}  className="row">
                 {row.map((box, index2) => {

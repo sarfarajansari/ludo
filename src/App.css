@@ -20,7 +20,7 @@
     box-sizing: initial;
 }
 .box-element {
-    box-shadow: hsl(0, 0%, 60%) 0 0 16px;
+    box-shadow: hsl(0, 0%, 50%) 0 0 8px;
     background-color: #fff;
     border-radius: 4px;
     padding: 10px;

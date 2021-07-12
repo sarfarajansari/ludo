@@ -7,8 +7,6 @@ import BoardElements from "./jsxelements/boardElements";
 import GetPlayer from "../helper/Player/GetPlayer"
 import Ludo,{get_index} from "../helper/Ludogame/ludo";
 import {colors} from "../helper/Ludogame/initial"
-import Postreq from "../helper/request/post_request"
-import Getreq from "../helper/request/get_request"
 import app_data from "../helper/request/app_data"
 import post_request from "../helper/request/postrequest"
 

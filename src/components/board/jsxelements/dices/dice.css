@@ -52,3 +52,19 @@
     position:relative;
     bottom: 80px;
 }
+
+
+/* for online */
+
+.dice.online{
+    display:flex;
+    justify-content:center;
+}
+.faketurn.online{
+    position:absolute;
+    z-index: 500;
+}
+.faketurn.online div{
+    width:60px;
+    height:84px;
+}

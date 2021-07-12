@@ -40,7 +40,7 @@ const Content = (props) => {
             <Switch>
                 <Route exact path="/local/play/:token/" render={(props) => <Localstarter {...props} update={updateStorage} sidebar={sidebar} storage={storage} />} />
                 <Route exact path="/online/play/:gtoken/:ptoken/" render={(props) => <OnlineGame {...props} update={updateStorage} sidebar={sidebar}/>}/>
-                <div className="game-grid">
+                <div className="game-grid box-element">
                     <Route exact path="/local/" render={(props) => <LocalCreator {...props} update={updateStorage} storage={storage} />} />
                     <Route exact path="/online/" render={(props) => <OnlineManager {...props} update={updateStorage} storage={storage} />} />
                     <Route exact path="/"  render={(props) => <Modeselector {...props} update={updateStorage}/>}/>

@@ -6,7 +6,7 @@
 }
 .row{
     display: flex;
-    justify-content:space-around;
+    justify-content:center;
 }
 .row > div{
     font-size:clamp(1.4rem,calc((100vw / 15) - 5px), 1.6rem);
@@ -66,19 +66,6 @@
     justify-content:center;
     align-items:center;
 }
-
-
-/* @media screen and (min-width: 720px){
-    .row > div{
-        width: calc(2em );
-        height:calc(2em );
-    }
-    .row .no-border{
-        border:none;
-        width: calc(2em + 2px );
-        height:calc(2em + 2px );
-    }
-} */
 
 
 
