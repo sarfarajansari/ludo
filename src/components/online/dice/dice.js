@@ -20,7 +20,7 @@ const Dice = (props) => {
               <ReactDice
                 numDice={1}
                 rollDone={(num) => {
-                  updategame([["dice", num]]);
+                  update([["dice", num]]);
                   checkturn(num);
                 }}
                 margin={0}

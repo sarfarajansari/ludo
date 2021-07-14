@@ -39,6 +39,7 @@ class Coordinate{
             y: this.y,
             initial: this.initial,
             reached: this.is_reached(),
+            number: this.number
         }
     }
         

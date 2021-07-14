@@ -4,7 +4,7 @@ import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 import Pageheader from '../../online/helper/page-header/pageheader';
 import "./name.css"
 
-const name = () => {
+const Name = () => {
     const [name, setname] = useState("")
     const saveName=()=>{
         if(name!==""){
@@ -33,4 +33,4 @@ const name = () => {
     );
 }
 
-export default name;
+export default Name;

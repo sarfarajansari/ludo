@@ -34,13 +34,19 @@ class Ludo{
             runnerup1: this.runnerup1,
             loser: this.loser,
             turn: this.turn,
-            players:players
+            players:players,
+            steps:this.steps,
+            lastTurn: this.lastTurn,
+            dice:this.dice,
+            old: this.old,
         }
     }
     PlayersList(){
         let list =[];
         this.players.forEach((player)=>{
-            list.push(player.colorId)
+            if(player.active){
+                list.push(player.colorId)
+            }
         })
         return list
     }
@@ -106,7 +112,6 @@ class Ludo{
         let current = [c.y,c.x]
         let start = false
         let step_up = 0
-        let steps = []
         
         Paths[c.colorId].forEach((pos)=>{
             if(start){
@@ -167,6 +172,8 @@ class Ludo{
             this.players[i].name = dataPlayers[i].name
             this.players[i].colorId = dataPlayers[i].colorId
             this.players[i].complete = dataPlayers[i].complete
+            this.players[i].active = dataPlayers[i].active
+            this.players[i].host = dataPlayers[i].host
             
             for(let j=0;j<4;j++){
                 this.players[i].coordinates[j].colorId=dataPlayers[i].colorId

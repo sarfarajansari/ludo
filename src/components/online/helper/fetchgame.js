@@ -5,12 +5,16 @@ const fetchGame = (url,setGame,setMessages,setPlayer,update=false)=>{
     fetch(app_data.url+url)
     .then((response)=>response.json())
     .then((data)=>{
-        if(data.status===0){console.log(data.game)}
         if("messages" in data){
             setMessages(data.messages,2)
         }
         if("game" in data){
-            setGame(data.game)
+            if ("play" in data){
+                setGame(data.game,data["play"])
+            }
+            else{
+                setGame(data.game)
+            }
             if("player" in data){
                 data.game.players.forEach((p)=>{
                     if(p.colorId ==data["player"]){

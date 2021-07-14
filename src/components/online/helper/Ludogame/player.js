@@ -55,6 +55,4 @@ class Player{
         }
     }
 }
-// let p = new Player("","red",0)
-// console.log(p.singleturn())
 export default Player;

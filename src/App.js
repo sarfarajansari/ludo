@@ -20,7 +20,7 @@ function App() {
   useEffect(() =>setInterval(forceUpdate,10),[])
   return (
     <Background>
-      <Router basename="/ludo">
+      <Router basename="/">
         <div id="grid">
           <div id="navbar"><Header sidebar={sidebar}/></div>
           <div id="content">

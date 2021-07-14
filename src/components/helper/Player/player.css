@@ -53,3 +53,40 @@
 .blueplayerobject div{
     background-image:url("https://res.cloudinary.com/dnppl93qm/image/upload/v1623960505/media/ludo/blue_sq2xbx.jpg");
 }
+
+
+
+/* new css */
+.twoplayers.two{
+    position: absolute;
+}
+.twoplayers.one{
+    position: relative;
+    right:0.3em;
+}
+
+.threeplayers.one{
+    position: absolute;
+}
+.threeplayers.two{
+    position: relative;
+    left: 0.8em;
+}.threeplayers.three{
+    position: relative;
+    right: 0.5em;
+}
+
+.fourplayers.one{
+    position: absolute;
+}
+.fourplayers.two{
+    position: relative;
+    left: 1.44em;
+}.fourplayers.three{
+    position: relative;
+    left: 0.08em;
+}
+.fourplayers.four{
+    position: relative;
+    right: 1.26em;
+}

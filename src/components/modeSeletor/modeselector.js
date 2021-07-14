@@ -2,7 +2,7 @@ import "./mode.css";
 import React,{useEffect} from "react"
 import {Link} from "react-router-dom";
 
-const modeselector = (props) => {
+const Modeselector = (props) => {
     useEffect(() => {
         props.update([["backtype",0],["hometype",0]])
         return () => {
@@ -20,4 +20,4 @@ const modeselector = (props) => {
     );
 }
 
-export default modeselector;
+export default Modeselector;

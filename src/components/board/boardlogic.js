@@ -41,12 +41,10 @@ const BoardLogic = (props) => {
     fetch(app_data.url+"/getmsgs/"+ Token+"/")
     .then(response=>response.json())
     .then((data)=>setsidebar(data))
-    console.log("yes")
     return () => {
       var s = sidebar
       s.type=0;
       setsidebar(s)
-      console.log("returned")
 
     }
   },[])
@@ -161,7 +159,7 @@ const BoardLogic = (props) => {
   
 
   const PL = [[
-    {"colorId":0,"number":0,"value":<Playerobjects className={" redplayerobject"} step={play} colorId={0} number={0} />},
+    {"colorId":0,"number":0,"value":<Playerobjects  className={" redplayerobject"} step={play} colorId={0} number={0} />},
     {"colorId":0,"number":1,"value":<Playerobjects className={" redplayerobject"} step={play} colorId={0} number={1} />,},
     {"colorId":0,"number":2,"value":<Playerobjects className={" redplayerobject"} step={play} colorId={0} number={2} />,},
     {"colorId":0,"number":3,"value":<Playerobjects className={" redplayerobject"} step={play} colorId={0} number={3} />,}],

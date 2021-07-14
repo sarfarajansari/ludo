@@ -6,7 +6,7 @@ import Selector from "../../playerSelector/selector"
 import Back from "../../helper/back/back"
 
 
-const onlineManager = (props) => {
+const OnlineManager = (props) => {
     const [page, setpage] = useState(0)
     const [players,setplayers] = useState(initialplayers)
 
@@ -49,4 +49,4 @@ const onlineManager = (props) => {
     );
 }
 
-export default onlineManager;
+export default OnlineManager;
