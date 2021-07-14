@@ -31,11 +31,13 @@ const OnlineGame = (props) => {
           fetchGame("/update/message/"+gtoken+"/"+ptoken+"/",false,setMessage)
           fetchGame("/update/game/"+gtoken+"/"+ptoken+"/",receiveGame,false)
         },500)
+        console.log("connected")
         return () => {
             fetch(app_data.url+ "/disconnect/"+gtoken+"/"+ptoken+"/")
             console.log("disconnected")
         }
     }, [])
+
 
 
     const updateLudo = (data)=>{
@@ -77,17 +79,27 @@ const OnlineGame = (props) => {
     }
 
     const receiveGame = (game,needplay=false)=>{
-      let ludo = Ludo
-      ludo.update(game)
-      setLudo(ludo)
       if(needplay){
-        PlaySteps(ludo.steps,ludo.old,ludo.lastTurn)
+        const onComplete = ()=>{
+          let ludo = Ludo
+          ludo.update(game)
+          setLudo(ludo)
+          updateLudo(ludo)
+        }
+        console.log("playing by server")
+        play(game.lastplayed.colorId,game.lastplayed.number,true,game.dice,onComplete)
+      }
+      else{
+        let ludo = Ludo
+        ludo.update(game)
+        setLudo(ludo)
       }
       
     }
 
 
-    const play = (colorId,number ,noauth=false,oncomplete=false)=>{
+    const play = (colorId,number ,noauth=false,gamedice=false,onComplete=false)=>{
+      
       if(colorId!==Ludo.turn || !Ludo.rolled){
         if(!noauth){
           return
@@ -96,34 +108,39 @@ const OnlineGame = (props) => {
       let data = Ludo
       let c = data.players[get_index(data.players,colorId)].coordinates[number]
       var old = [c.y,c.x]
-      let [stepped,steps]=data.step(c,data.dice)
-      console.log(steps)
+      let [stepped,steps]=data.step(c,gamedice?gamedice:data.dice)
       if(stepped){
         var z = Ludo.dice<2?"step":"steps"
-        sendmessage(colors[colorId] + " played " + String(Ludo.dice) + " " + z,"log")
       }
 
       data.rolled =data.dice===6?false:! data.update_turn(stepped)
       data.old = [c.y,c.x]
       data.steps=steps
-      fetchPost("/play/" +gtoken+"/"+ptoken+"/",data.data())
+      data.lastplayed.number = number
+      data.lastplayed.colorId = colorId
+      if(!noauth){
+        fetchPost("/play/" +gtoken+"/"+ptoken+"/",data.data())
+      }
+      else{
+        console.log(steps,stepped)
+        data.rolled = false;
+      }
       setLudo(data)
-      PlaySteps(steps,old,colorId)
+      PlaySteps(steps,old,colorId,onComplete)
     }
 
-    const PlaySteps=(steps,old,colorId)=>{
+    const PlaySteps=(steps,old,colorId,onComplete=false)=>{
       const start = (interval=false)=>{
         var stop=false
         var length = steps.length
         if(length<=0){
             if(interval){
-              if(oncomplete){
-                oncomplete()
+              if(onComplete){
+                onComplete()
               }
               else{
                 updateLudo(Ludo)
               }
-              
               clearInterval(interval)
             }
             stop = true
@@ -169,37 +186,7 @@ const OnlineGame = (props) => {
     }
     }
 
-    // const PlaySteps=(steps,old,colorId)=>{
 
-    //   steps.forEach(step=>{
-    //     console.log(step)
-    //     var interval = setInterval(()=>{
-    //       var b = Board
-    //       var children= b[old[0]][old[1]].children
-    //       var index =false
-    //       children.forEach((child,i)=>{
-    //         if(child.colorId==colorId){
-    //           index=i
-    //         }
-    //       })
-    //       var element = index>-1? children[index]:false
-  
-    //       if (element) {
-    //         b[old[0]][old[1]].children.splice(index,1)
-    //         b[old[0]][old[1]].value = GetPlayer(b[old[0]][old[1]].children,play)
-  
-            
-    //         b[step[0]][step[1]].children.push(element)
-    //         b[step[0]][step[1]].value= GetPlayer(b[step[0]][step[1]].children,play)
-            
-    //         setBoard(b)
-    //         old = step
-    //         clearInterval(interval)
-    //       }
-    //     },300)
-    //   })
-
-    // }
 
     const checkturn = (number) =>{
       if(!Ludo.players[get_index(Ludo.players,Ludo.turn)].onground() && number <6){

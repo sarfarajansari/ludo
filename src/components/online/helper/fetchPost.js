@@ -10,6 +10,7 @@ export default function fetchPost(url,body,update="",set=""){
     fetch(app_data.url+ url,requestdata)
     .then(response=>response.json())
     .then((data)=>{
+        console.log("data updated in the server",url)
         if (set){
             set(data)
         }

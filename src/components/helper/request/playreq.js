@@ -15,7 +15,6 @@ export default function Playreq(url,body,update){
     .then(handleErrors)
     .then(response=>response.json())
     .then((data)=>{
-        console.log(data)
         if(data.status===1){
             update([["alert",""]])
             setTimeout(()=>{

@@ -18,11 +18,7 @@ const LocalCreator = (props) => {
         p[index].selected =!players[index].selected;
         setplayers(p)
     }
-    const changeName = (name,index)=>{
-        let p = players;
-        p[index].name =name;
-        setplayers(p)
-    }
+
     const checkvalid=()=>{
         let list = [[],[]]
         players.forEach((player)=>{

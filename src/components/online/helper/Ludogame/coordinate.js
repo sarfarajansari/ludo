@@ -12,7 +12,7 @@ class Coordinate{
     }
     is_reached(){
         let final = Paths[this.colorId][56]
-        return final[0] == this.y && final[1]==this.x
+        return final[0] === this.y && final[1]===this.x
     }
     initialize(){
         this.y = initial_position[this.colorId][this.number][0]

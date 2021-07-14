@@ -15,7 +15,6 @@ export default function Postreq(url,body,update,set=""){
     .then(handleErrors)
     .then(response=>response.json())
     .then((data)=>{
-        console.log(data)
         if (set){
             set(data)
         }

@@ -3,7 +3,6 @@ import "./manager.css"
 import Pageheader from "../helper/page-header/pageheader"
 import initialplayers from "./playerData"
 import Selector from "../../playerSelector/selector"
-import Back from "../../helper/back/back"
 
 
 const OnlineManager = (props) => {
@@ -11,7 +10,7 @@ const OnlineManager = (props) => {
     const [players,setplayers] = useState(initialplayers)
 
     useEffect(() =>{
-        if(page==0){
+        if(page===0){
             props.update([["backtype",1],["backurl","/"]])
         }
     },[page])

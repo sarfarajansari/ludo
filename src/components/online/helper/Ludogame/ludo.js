@@ -5,7 +5,7 @@ import Paths from './paths'
 export const get_index=(players,colorId)=>{
     let index = false;
     players.forEach((player,i)=>{
-        if(player.colorId==colorId){
+        if(player.colorId===colorId){
             index=i;
         }
     })
@@ -20,6 +20,10 @@ class Ludo{
         this.rolled = false;
         this.steps=[];
         this.extra_turn = false;
+        this.lastplayed = {
+            colorId:0,
+            number:0
+        }
     }
     data(){
         let players = []
@@ -39,6 +43,7 @@ class Ludo{
             lastTurn: this.lastTurn,
             dice:this.dice,
             old: this.old,
+            lastplayed: this.lastplayed,
         }
     }
     PlayersList(){
@@ -99,8 +104,9 @@ class Ludo{
         if( step> 6 || step<1 || c.reached || c.colorId!==this.turn){
             return r
         }
+
         if(c.initial){
-            if(step==6){
+            if(step===6){
                 this.players[get_index(this.players,c.colorId)].coordinates[c.number].y = Paths[c.colorId][0][0]
                 this.players[get_index(this.players,c.colorId)].coordinates[c.number].x = Paths[c.colorId][0][1]
                 this.players[get_index(this.players,c.colorId)].coordinates[c.number].initial = false
@@ -112,9 +118,10 @@ class Ludo{
         let current = [c.y,c.x]
         let start = false
         let step_up = 0
-        
+        console.log(c)
         Paths[c.colorId].forEach((pos)=>{
             if(start){
+                
                 step_up++;
                 r[1].push(pos)
             }
@@ -131,6 +138,7 @@ class Ludo{
                 start=false;
             }
             if(pos[0]===current[0] && pos[1]===current[1]){
+                
                 start = true
             }
         })
@@ -148,12 +156,11 @@ class Ludo{
         if(g.get_winner){
             this.winner = g.get_winner
         }
-        this.old = [g.old.y,g.old.x];
+        
 
         this.dice = g.dice;
         this.turn= g.turn;
-        this.lastTurn = g.lastTurn
-        this.setSteps(g.steps)
+        this.lastplayed = g.lastplayed
         this.setPlayers(g.players)
 
 
@@ -186,13 +193,7 @@ class Ludo{
 
         }
     }
-    setSteps(s){
-        let steps =[]
-        s.forEach((i)=>{
-            steps.push([s.y,s.x])
-        })
-        this.steps =steps
-    }
+
     
     is_ended(){
         if(this.ended){
