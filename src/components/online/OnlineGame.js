@@ -8,7 +8,7 @@ import initial_board from "./helper/initialoard"
 import GetPlayer from "../helper/Player/GetPlayer"
 import Playerobjects from "../helper/Player/playerobjects";
 import {get_index} from "../helper/Ludogame/ludo"
-import {colors} from "../helper/Ludogame/initial"
+
 
 const OnlineGame = (props) => {
     const [sidebar,setsidebar] = props.sidebar;
@@ -21,6 +21,7 @@ const OnlineGame = (props) => {
 
 
     useEffect(() => {
+        props.update([["loading",true]])
         fetchGame("/connect/"+gtoken+"/"+ptoken+"/",setGame,setMessage,setPlayer)
         window.onbeforeunload=() =>{
             fetch(app_data.url+ "/disconnect/"+gtoken+"/"+ptoken+"/")
@@ -34,9 +35,15 @@ const OnlineGame = (props) => {
         console.log("connected")
         return () => {
             fetch(app_data.url+ "/disconnect/"+gtoken+"/"+ptoken+"/")
-            console.log("disconnected")
+            console.log("disconnected");
+            setsidebar({
+              type:0,
+              data:[]
+            });
         }
     }, [])
+
+
 
 
 
@@ -58,10 +65,12 @@ const OnlineGame = (props) => {
       }
 
     const setGame=(g) => {
+      console.log(g)
         let ludo = Ludo
         ludo.update(g)
         setLudo(ludo)
         updateLudo(ludo)
+        props.update([["loading",false]])
     }
     const updateState=(lists)=>{
       var current_state = Ludo

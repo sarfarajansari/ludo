@@ -3,7 +3,7 @@
     text-align: center;
     text-transform: uppercase;
 }
-.creator-container h3{
+.creator-container h3,.create-container h2{
     color: rgb(16, 133, 235);
     text-align: center;
     padding:1px;

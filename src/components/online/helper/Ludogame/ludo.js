@@ -223,5 +223,20 @@ class Ludo{
         return ended
     }
 
+    active(player){
+        if(this.players.length==0){
+            return true
+        }
+        return this.players[get_index(this.players,player)].active
+    }
+
+    activePlayers(){
+        let i = 0;
+        this.players.forEach((p)=>{
+            i+=p.active?1:0 
+        })
+        return i
+    }
+
 }
 export default Ludo;

@@ -8,7 +8,10 @@ import LocalCreator from "../local/localcreator/localCreator"
 import Modeselector from "../modeSeletor/modeselector"
 import OnlineGame from "../online/OnlineGame"
 import OnlineManager from "../online/Manager/manager"
+import Create from "../online/Manager/create"
+import Join from "../online/Manager/join"
 import Back from "../helper/back/back"
+import JoinWithURL from "../online/Manager/joinwithURL"
 import "./content.css";
 
 
@@ -22,7 +25,6 @@ const Content = (props) => {
         loading:false,
         gamestarted:0,
         backtype:1,
-        backclick:()=>{},
         backurl:"",
         hometype:1,
     })
@@ -43,12 +45,16 @@ const Content = (props) => {
                 <div className="game-grid box-element">
                     <Route exact path="/local/" render={(props) => <LocalCreator {...props} update={updateStorage} storage={storage} />} />
                     <Route exact path="/online/" render={(props) => <OnlineManager {...props} update={updateStorage} storage={storage} />} />
+                    <Route exact path="/online/create/" render={(props) => <Create {...props} update={updateStorage} storage={storage} />} />
+                    <Route exact path="/online/join/" render={(props) => <Join {...props} update={updateStorage} storage={storage} />} />
+                    <Route exact path="/online/join/:gtoken/" render={(props) => <JoinWithURL {...props} update={updateStorage}/>}/>
                     <Route exact path="/"  render={(props) => <Modeselector {...props} update={updateStorage}/>}/>
+
                 </div>
                 
             </Switch>
                 <Back home={true} type={storage.hometype} url="/" name={"Home"}/>
-                <Back type={storage.backtype} url={storage.backurl} onclick={storage.backclick} name={"back"}/>
+                <Back type={storage.backtype} url={storage.backurl} name={"back"}/>
             </div>
             <Loading loading={storage.loading}/>
             <Alert alert={storage.alert} update={updateStorage} alertType={storage.alertType}/>
