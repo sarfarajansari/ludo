@@ -10,11 +10,11 @@ const OnlineManager = (props) => {
     },[])
     return (
         <div>
-            <Pageheader title={"Play"}/>
-            <div className="manager-container">
+            <Pageheader title={"IN PROGRESS"}/>
+            {/* <div className="manager-container">
                 <Link to={"/online/create/"}><button className="btn" >Create Room</button></Link>
                 <Link to={"/online/join/"}><button className="btn">Join Room</button></Link>
-            </div>
+            </div> */}
         </div>
     );
 }

@@ -45,9 +45,9 @@ const Content = (props) => {
                 <div className="game-grid box-element">
                     <Route exact path="/local/" render={(props) => <LocalCreator {...props} update={updateStorage} storage={storage} />} />
                     <Route exact path="/online/" render={(props) => <OnlineManager {...props} update={updateStorage} storage={storage} />} />
-                    <Route exact path="/online/create/" render={(props) => <Create {...props} update={updateStorage} storage={storage} />} />
+                    {/* <Route exact path="/online/create/" render={(props) => <Create {...props} update={updateStorage} storage={storage} />} />
                     <Route exact path="/online/join/" render={(props) => <Join {...props} update={updateStorage} storage={storage} />} />
-                    <Route exact path="/online/join/:gtoken/" render={(props) => <JoinWithURL {...props} update={updateStorage}/>}/>
+                    <Route exact path="/online/join/:gtoken/" render={(props) => <JoinWithURL {...props} update={updateStorage}/>}/> */}
                     <Route exact path="/"  render={(props) => <Modeselector {...props} update={updateStorage}/>}/>
 
                 </div>

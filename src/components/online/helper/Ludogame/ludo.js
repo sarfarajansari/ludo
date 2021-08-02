@@ -224,7 +224,7 @@ class Ludo{
     }
 
     active(player){
-        if(this.players.length==0){
+        if(this.players.length===0){
             return true
         }
         return this.players[get_index(this.players,player)].active

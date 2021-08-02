@@ -16,7 +16,6 @@ function App() {
     type:0,
     data:[]
   })
-  const [name, setname] = useState("")
   useEffect(() =>setInterval(forceUpdate,10),[])
   return (
     <Background>
