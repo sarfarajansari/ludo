@@ -49,18 +49,18 @@ const BoardLogic = (props) => {
     }
   },[])
   
-  const updateLog = (text)=>{
-    var s = sidebar
-    s.data.push({
-      text:text,
-      name:"log"
-    })
-    setsidebar(s)
-    post_request("/message/",{
-      "message":text,
-      "token":Token
-    })
-  }
+  // const updateLog = (text)=>{
+  //   var s = sidebar
+  //   s.data.push({
+  //     text:text,
+  //     name:"log"
+  //   })
+  //   setsidebar(s)
+  //   post_request("/message/",{
+  //     "message":text,
+  //     "token":Token
+  //   })
+  // }
 
   const play = (colorId,number)=>{
     if(colorId!==Game.turn || !Game.rolled){
@@ -71,10 +71,7 @@ const BoardLogic = (props) => {
     var old = [c.y,c.x]
     let [stepped,steps]=data.step(c,data.dice)
 
-    if(stepped){
-      var z = Game.dice<2?"step":"steps"
-      updateLog(colors[colorId] + " played " + String(Game.dice) + " " + z)
-    }
+
 
     data.rolled =data.dice===6?false:! data.update_turn(stepped)
     data.old = [c.y,c.x]
