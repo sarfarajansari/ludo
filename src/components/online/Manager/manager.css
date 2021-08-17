@@ -1,9 +1,0 @@
-.manager-container{
-    height: 100%;
-    display:flex;
-    flex-direction: column;
-}
-
-.disabled{
-    background-color: rgb(36, 40, 44);
-}
