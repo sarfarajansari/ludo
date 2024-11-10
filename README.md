@@ -1,70 +1,27 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Marvelous Ludo
 
-In the project directory, you can run:
+**Marvelous Ludo** is a fun, superhero-themed twist on the classic Ludo game! Inspired by my love for Marvel, this game brings iconic Marvel characters into the gameplay, making it an exciting choice for fans. Select your favorite Marvel heroes and dive into an adventurous game of Ludo!
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+https://github.com/user-attachments/assets/27095ba3-ad4c-47ae-87f2-cc3c21c81087
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- **Character Selection**: Choose from a variety of Marvel characters to play with. You can select a minimum of two characters to start the game.
+- **Classic Ludo Gameplay**: Play the traditional game of Ludo with a Marvel-inspired design and visuals.
+- **Vibrant UI**: The game board and visuals are customized with Marvel-themed colors and designs, enhancing the gameplay experience.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to Play
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Select Your Characters**: Begin by selecting Marvel characters to play as. At least two players (characters) are required to start the game.
+2. **Roll the Dice**: Each player takes turns rolling the dice and moving their pieces based on the results.
+3. **Classic Ludo Rules**: Move your pieces around the board, capture opponents' pieces, and try to get all your pieces to the finish line!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Behind the Game
 
-### `npm run eject`
+I’m a huge Marvel fan, and I wanted to make the game more engaging by incorporating elements from the Marvel universe. The custom character selection and board design were crafted to give Ludo a superhero flair!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
